@@ -1,0 +1,15 @@
+the information to access database via php
+
+type:		MySQL
+host:		pingchengtech.com
+db_name:	dp2
+db_user:	dp2user
+db_password:	dp2userdp2user
+
+tables:
+product
+sales
+stock
+
+**details please refer to the diagram
+if anything is not clear, give me an email on neroc7@gmail.com
