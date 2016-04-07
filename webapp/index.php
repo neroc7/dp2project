@@ -39,7 +39,7 @@
 								<button id="add_record" type="button" class="btn btn-default">Add a sale record</button>
 							</div>
 							<div class="btn-group" role="group">
-								<button id="btn_check_stock" type="button" class="btn btn-default disabled">Check Stock</button>
+								<button id="btn_check_stock" type="button" class="btn btn-default">Check Stock</button>
 							</div>
 						</div>
 						<br/><p><strong>Sale History: </strong>Review the sale history by listing, you also can update a record, or delete a record.<br/><br/><strong>Add a sale record: </strong>Adding a sale record to the database.</p>
@@ -57,6 +57,10 @@
 
 		$("#add_record").click(function(){
 			window.location.href="add.php";
+		});
+
+		$("#btn_check_stock").click(function(){
+			window.location.href="check_stock.php";
 		});
 
 	</script>
