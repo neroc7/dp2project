@@ -5,6 +5,7 @@
 	<link href="css/style.css" rel="stylesheet" />
 	<!-- <link href="css/theme.css" rel="stylesheet" /> -->
 	<script src="script/jquery.js"></script>
+	<script src="script/bs.js"></script>
 </head>
 <body>
 	<?php require "nav.php"; ?>
@@ -52,40 +53,78 @@
 							<th>Quantity</th>
 							<th>Action</th>
 						</tr>
-						<tr>
-							<td>1</td>
-							<td>Panadol</td>
-							<td>$5.99</td>
-							<td>120</td>
-							<td><button class="btn btn-success btn-xs" onclick="add_quantity('Panadol');">Add Quantity</button>
-								<button class="btn btn-primary btn-xs">Update</button>
-								<button class="btn btn-danger btn-xs">Delete</button></td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Sleep Pill</td>
-							<td>$34.99</td>
-							<td>70</td>
-							<td><button class="btn btn-success btn-xs" onclick="add_quantity('Sleep Pill');">Add Quantity</button>
-								<button class="btn btn-primary btn-xs">Update</button>
-								<button class="btn btn-danger btn-xs">Delete</button></td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Fever Relif</td>
-							<td>$14.99</td>
-							<td>50</td>
-							<td><button class="btn btn-success btn-xs" onclick="add_quantity('Fever Relif');">Add Quantity</button>
-								<button class="btn btn-primary btn-xs">Update</button>
-								<button class="btn btn-danger btn-xs">Delete</button></td>
-						</tr>
+						<?php 
+
+							require_once "settings.php";
+							$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+							
+							if (!$conn) {
+								echo "<p>Database connection failure</p>";
+							} else {
+								$query = "SELECT p.id, p.name, p.price, s.quantity FROM product p LEFT JOIN stock s ON p.id = s.id ORDER BY p.id;";
+								$result = mysqli_query($conn, $query);
+
+								if (!$result) {
+									echo "<p>Qeury failed: " + $result + "</p>";
+								} else {
+									while ($row = mysqli_fetch_assoc($result)) {
+
+										if ($row['quantity'] == null) {
+											$row['quantity'] = 0;
+										}
+										$item_id = $row['id'];
+										$item_name = $row['name'];
+
+										echo "<tr>";
+										echo "<td>", $row['id'], "</td>";
+										echo "<td>", $row['name'],"</td>";
+										echo "<td>", $row['price'],"</td>";
+										echo "<td>", $row['quantity'],"</td>";
+										?>
+
+										<td><button class="btn btn-success btn-xs" onclick="add_quantity(<?php echo "'$item_name'";?>);">Add Quantity</button>
+											<button class="btn btn-primary btn-xs">Update</button>
+											<button id=<?php echo "'btn_delete_$item_id'";?> class="btn btn-danger btn-xs" onclick="delete_item(<?php echo "'$item_id'";?>)" data-toggle="modal" data-target="#myModal">Delete</button></td>
+
+										<?php
+										echo "</tr>";
+									}
+								}
+
+								mysqli_free_result($result);
+							}
+
+							mysqli_close($conn);
+
+						?>
+						
 					</table>
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					  <div class="modal-dialog" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">Delete the Item</h4>
+					      </div>
+					      <div class="modal-body">
+					        <p id="delete_text">Are you sure to delete this item? All related stock information and sales records would delete too!!!</p>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        <button id="btn_delete_confirm" type="button" class="btn btn-danger" onclick="delete_confirmed();">Delete!</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<script type="text/javascript">
+
+		var delete_item_id = 0;
 		
 		$("#btn_stock_review").click(function(){
 			window.location.href="../check_stock.php";
@@ -102,6 +141,18 @@
 		function add_quantity(item_name) {
 			localStorage.setItem("add_item_name", item_name);
 			window.location.href="../add_stock_item_quantity.php";
+		}
+
+		function delete_item(item_id) {
+			delete_stock_item = item_id;
+		}
+
+		function delete_confirmed() {
+			$.post("delete_stock_item.php", {id: delete_stock_item}, function(data) {
+				if (data == "ok") {
+					location.reload();
+				}
+			});
 		}
 
 	</script>
