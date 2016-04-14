@@ -62,6 +62,7 @@
 								<!-- product select -->
 								<table class="table table-hover">
 								<!-- quantity select -->
+								<input type="hidden" name="itemid" id="itemid" />								
 								<tr>
 									<div class="form-group">
 										<td>
@@ -113,7 +114,10 @@
 		$(document).ready(function(){
 			var item_name = localStorage.getItem("add_item_name");
 			$("#stockitem").val(item_name);
+			var item_id = localStorage.getItem("add_item_id");
+			$("#itemid").val(item_id);
 		});
+
 
 	</script>
 
