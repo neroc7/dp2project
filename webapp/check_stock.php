@@ -82,7 +82,7 @@
 										echo "<td>", $row['quantity'],"</td>";
 										?>
 
-										<td><button class="btn btn-success btn-xs" onclick="add_quantity(<?php echo "'$item_name'";?>);">Add Quantity</button>
+										<td><button class="btn btn-success btn-xs" onclick="add_quantity(<?php echo "'$item_name', $item_id";?>);">Add Quantity</button>
 											<button class="btn btn-primary btn-xs">Update</button>
 											<button id=<?php echo "'btn_delete_$item_id'";?> class="btn btn-danger btn-xs" onclick="delete_item(<?php echo "'$item_id'";?>)" data-toggle="modal" data-target="#myModal">Delete</button></td>
 
@@ -138,8 +138,9 @@
 			window.location.href="../update_stock_item.php";
 		});
 
-		function add_quantity(item_name) {
+		function add_quantity(item_name, item_id) {
 			localStorage.setItem("add_item_name", item_name);
+			localStorage.setItem("add_item_id", item_id);			
 			window.location.href="../add_stock_item_quantity.php";
 		}
 

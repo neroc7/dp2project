@@ -55,7 +55,7 @@
 						<br/>
 
 						<!-- form -->
-						<form id="new_record">
+						<form id="new_record" method="post" action="addsi_process.php">
 							<fieldset>
 								<legend>New Stock Item</legend>
 								<div class="alert alert-success">Please fill the item name and price in the table, after you added the record, you can <strong>add the quantity in the stock review.</strong> <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
@@ -69,7 +69,7 @@
 										</td>
 										<td>
 											<div class="col-lg-10">
-												<input type="text" class="form-control" id="stockitem" placeholder="Panadol" />
+												<input type="text" class="form-control" name="stockitem" id="stockitem" placeholder="Panadol" />
 											</div>
 										</td>
 									</div>
@@ -81,7 +81,7 @@
 										</td>
 										<td>
 											<div class="col-lg-10">
-												<input type="number" class="form-control" id="price" placeholder="e.g. enter 14 for $14" />
+												<input type="number" class="form-control" id="price" name="price" placeholder="e.g. enter 14 for $14" />
 											</div>
 										</td>
 									</div>
