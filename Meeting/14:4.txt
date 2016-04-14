@@ -4,7 +4,7 @@ Sprint Review
 * all tasks in sprint 1 is complete on time
 * stakeholder is happy with the with the current function we achieved 
 * no item is incomplete in this sprint
-
+* validation is not develop to all the form we had currently, this will be complete in spring 2
 
 
 
