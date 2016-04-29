@@ -54,7 +54,7 @@
 					</div>
 					<!-- 	sample of table 
 							****This part should be created by program (js or jquery or php), you may need to add more attribute and event to button to achieve the function -->
-					<table class="table table-hover table-striped table-condensed">
+					<table class="table table-hover table-striped table-condensed">    
 							<tr>
 								<th>Order ID</th>
 								<th>Date</th>
