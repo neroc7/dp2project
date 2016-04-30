@@ -95,17 +95,16 @@
 		</div>
 	</div>
 
-
+ 
 <div class="container">
-<div class="main">
-<div id="dialog" title="Update Form">
-<form action="" method="post"> 
-<label> Cost:</label>
-<input id="bid" name="name" type="text">
-<input  class="btn btn-danger btn-xs" id="submit" type="submit" value="Submit">
-</form>
-</div>
-  
+	<div class="main">
+	<div id="dialog" title="Update Form">
+		<form action="" method="post"> 
+		<label>Cost:</label>
+		<input style="color:blue" id="costValue" name="costValue" type="text">
+		<input  class="btn btn-danger btn-xs" id="newcost" name="newcost" type="submit" value="Submit">
+	</form>
+</div> 
 
 	<script type="text/javascript">
 		$("#update").click(function(){
