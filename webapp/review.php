@@ -127,7 +127,7 @@
 	                  }
 			}); 
 
-				alert('item deleted successfuly');
+				alert('Item deleted successfuly');
 				location.reload();
  
 		});	
@@ -147,7 +147,7 @@
 	                  }
 			}); 
 
-			alert('quantity updated successfuly');
+			alert('Quantity updated successfuly');
 			//close dialog
 			$(this).closest('.ui-dialog-content').dialog('close'); 
 		});
