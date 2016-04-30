@@ -118,7 +118,7 @@
 		 
 
 			//set url DOMAIN
-			$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
+			$.ajax({ url: 'updateSaleItem.php',
 	         data: {action:'delete', saleId:saleId},
 	         type: 'POST',
 	         dataType:'JSON', 
@@ -138,7 +138,7 @@
 			var quantityValue = document.getElementById('quantityValue').value;
  
 				//set url DOMAIN
-			$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
+			$.ajax({ url: 'updateSaleItem.php',
 	         data: {action:'update', saleId:saleId, quantity:quantityValue},
 	         type: 'POST',
 	         dataType:'JSON', 
