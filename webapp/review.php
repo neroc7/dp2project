@@ -126,6 +126,9 @@
 	                      alert(output);
 	                  }
 			}); 
+
+				alert('item deleted successfuly');
+				location.reload();
  
 		});	
 
