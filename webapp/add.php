@@ -98,7 +98,7 @@ if(isset($_POST['addrecord']))
 								</tr>
 								</table>
 								<button class="btn btn-primary" name="addrecord" id="addrecord"  type="submit">Add this Recrod</button>
-								<button class="btn btn-warning" type="reset">Cancel</button>
+								<button class="btn btn-warning" id="cancel" type="reset">Cancel</button>
 							</fieldset>
 						</form>
 					</div>
@@ -108,9 +108,10 @@ if(isset($_POST['addrecord']))
 	</div>
 
 	<script type="text/javascript">
-	 
-
-
+	  
+		$("#cancel").click(function(){
+			window.location.href="/";
+		});
 			
 
 		$("#btn_record").click(function(){
