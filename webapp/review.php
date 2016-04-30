@@ -115,8 +115,9 @@
 
 		$("#delete").click(function(){
 			var saleId = $('td:first', $(this).parents('tr')).text();
-			alert(saleId)
+		 
 
+			//set url DOMAIN
 			$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
 	         data: {action:'delete', saleId:saleId},
 	         type: 'POST',
@@ -133,14 +134,15 @@
 	 
 			var quantityValue = document.getElementById('quantityValue').value;
  
-					$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
-			         data: {action:'update', saleId:saleId, quantity:quantityValue},
-			         type: 'POST',
-			         dataType:'JSON', 
-			         success: function(output) {
-			                      alert('output');
-			                  }
-					}); 
+				//set url DOMAIN
+			$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
+	         data: {action:'update', saleId:saleId, quantity:quantityValue},
+	         type: 'POST',
+	         dataType:'JSON', 
+	         success: function(output) {
+	                      alert('output');
+	                  }
+			}); 
 
 			alert('quantity updated successfuly');
 			//close dialog
