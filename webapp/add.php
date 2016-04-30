@@ -9,15 +9,15 @@ if(isset($_POST['addrecord']))
 {
 	echo $_POST['name'];
 	$name = $_POST['name'];
-$sql = "INSERT INTO sales (s_id,p_id, quantity) VALUES (DEFAULT,1, $name)"; 
-		if (mysqli_query($conn, $sql)) {
-		    echo "New record created successfully";
-		} else {
+	$sql = "INSERT INTO sales (s_id,p_id, quantity) VALUES (DEFAULT,1, $name)"; 
+	if (mysqli_query($conn, $sql)) {
+		echo "New record created successfully";
+	} else {
 		    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
-		};
- 
-	 ?>
+	}
+};
+  
+?>
 
 
 <html>
