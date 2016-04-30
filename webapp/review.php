@@ -130,7 +130,7 @@
 
 
 		$("#dialog").find("#newQuantity").click(function () {
-			alert(saleId)
+	 
 			var quantityValue = document.getElementById('quantityValue').value;
  
 					$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
