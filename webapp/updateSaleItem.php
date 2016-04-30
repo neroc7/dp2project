@@ -7,7 +7,18 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
     $saleId = $_POST['saleId'];
     switch($action) {
         case 'update' : 
-        	echo $_POST['saleId'];break;
+        	$quantityValue = $_POST['quantity'];
+
+			$sql = "UPDATE sales SET quantity = $quantityValue WHERE s_id=$saleId ";
+
+			if ($conn->query($sql) === TRUE) {
+			    echo "Record updated successfully";
+			} else {
+			    echo "Error updating record: " . $conn->error;
+			}
+        	break;
+
+
         case 'delete' :
 		// sql to delete a record
 		$sql = "DELETE FROM sales WHERE s_id=$saleId";

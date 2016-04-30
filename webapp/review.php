@@ -96,32 +96,21 @@
 	</div>
 
  
-<div class="container">
-	<div class="main">
+
+ 
 	<div id="dialog" title="Update Form">
-		<form action="" method="post"> 
-		<label>Cost:</label>
-		<input style="color:blue" id="costValue" name="costValue" type="text">
-		<input  class="btn btn-danger btn-xs" id="newcost" name="newcost" type="submit" value="Submit">
-	</form>
-</div> 
+	 
+		<label>New Quantity:</label>
+		<input style="color:blue" id="quantityValue" name="quantityValue" type="text">
+		<button style="width:80px; height:30px;"  type="button" class="btn btn-danger btn-xs" id="newQuantity" name="newQuantity">Update</button>
+ 
+</div>
+
 
 	<script type="text/javascript">
+	var saleId = 0;
 		$("#update").click(function(){
-			var saleId = $('td:first', $(this).parents('tr')).text();
-				
-
-			alert(saleId)
-
-			$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
-	         data: {action:'update', saleId:saleId},
-	         type: 'POST',
-	         dataType:'JSON', 
-	         success: function(output) {
-	                      alert(output);
-	                  }
-			}); 
-
+			saleId = $('td:first', $(this).parents('tr')).text(); 
 		});
 
 		$("#delete").click(function(){
@@ -140,13 +129,26 @@
 		});	
 
 
+		$("#dialog").find("#newQuantity").click(function () {
+			alert(saleId)
+			var quantityValue = document.getElementById('quantityValue').value;
+ 
+					$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
+			         data: {action:'update', saleId:saleId, quantity:quantityValue},
+			         type: 'POST',
+			         dataType:'JSON', 
+			         success: function(output) {
+			                      alert(output);
+			                  }
+					}); 
+		});
+
+
 		$("#btn_record").click(function(){
 			window.location.href="../review.php";
 		});
 
-		$("#add_record").click(function(){
-			window.location.href="../statistics.php";
-		});
+	 
 
 	</script>
 </body>

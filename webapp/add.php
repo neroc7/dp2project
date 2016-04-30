@@ -15,7 +15,7 @@ if(isset($_POST['addrecord']))
 	$quantity = (int)$_POST['quantityValue'];
 	$sql = "INSERT INTO sales (s_id,p_id,date, quantity) VALUES (DEFAULT, $name,  $current_timestamp, $quantity)"; 
 	if (mysqli_query($conn, $sql)) {
-		echo time();
+		echo time();	
 	} else {
 		    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
