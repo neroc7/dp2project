@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require_once "connection.php"; ?>
 <html>
 <head>
 	<title>People Health Pharmacy Sales Reporting System</title>
@@ -71,6 +72,20 @@
 								<td><button class="btn btn-primary btn-xs">Update</button>
 									<button class="btn btn-danger btn-xs">Delete</button></td>
 							</tr> 
+
+
+						 					<?php
+						 						   //query products to drop down list   
+													$query = "select s_id,date from sales;";
+													$result = mysqli_query($conn, $query);
+													while ($row = mysqli_fetch_assoc($result))  {
+													                   echo "<tr>";
+													                   echo "<td>".$row['s_id']."</td>";
+													                   echo "<td>".$row['date']."</td>"; 
+													                   echo "</tr>";
+													               }
+ 
+											?>
 						</table>
 				</div>
 			</div>

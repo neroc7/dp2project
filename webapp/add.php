@@ -70,7 +70,7 @@ if(isset($_POST['addrecord']))
 											<div class="col-lg-10">
 
 						 					<?php
-						 						//query products to drop down list   
+						 						   //query products to drop down list   
 													$query = "select name,id from product;";
 													$result = mysqli_query($conn, $query);
 
