@@ -98,9 +98,9 @@
  
 
  
-	<div id="dialog" title="Update Form">
+	<div id="dialog" title="Update Sale Quantity">
 	 
-		<label>New Quantity:</label>
+		<label>New Item Quantity:</label>
 		<input style="color:blue" id="quantityValue" name="quantityValue" type="text">
 		<button style="width:80px; height:30px;"  type="button" class="btn btn-danger btn-xs" id="newQuantity" name="newQuantity">Update</button>
  
@@ -138,9 +138,13 @@
 			         type: 'POST',
 			         dataType:'JSON', 
 			         success: function(output) {
-			                      alert(output);
+			                      alert('output');
 			                  }
 					}); 
+
+			alert('quantity updated successfuly');
+			//close dialog
+			$(this).closest('.ui-dialog-content').dialog('close'); 
 		});
 
 

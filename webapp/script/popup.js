@@ -6,8 +6,5 @@ autoOpen: false
 $("#update").on("click", function() {
 $("#dialog").dialog("open");
 });
-});
-// Validating Form Fields.....
-
- 
+}); 
 });
