@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2016 at 03:32 AM
+-- Generation Time: Apr 30, 2016 at 05:36 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.34
 
@@ -51,6 +51,15 @@ CREATE TABLE `sales` (
   `date` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sales`
+--
+
+INSERT INTO `sales` (`s_id`, `p_id`, `date`, `quantity`) VALUES
+(59, 1, 1461986368, 213123),
+(60, 1, 1461986369, 5),
+(61, 1, 1461986370, 4);
 
 -- --------------------------------------------------------
 
@@ -101,7 +110,7 @@ ALTER TABLE `stock`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- Constraints for dumped tables
 --
