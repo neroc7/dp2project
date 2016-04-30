@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <?php require_once "connection.php"; ?>
+
+  
 <html>
 <head>
 	<title>People Health Pharmacy Sales Reporting System</title>
 	<link href="css/style.css" rel="stylesheet" />
 	<!-- <link href="css/theme.css" rel="stylesheet" /> -->
 	<script src="script/jquery.js"></script>
+	<script src="script/popup.js"></script>
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top">
@@ -63,15 +70,7 @@
 								<th>Cost</th>
 								<th>Action</th>
 							</tr>
-							<tr>
-								<td>1001</td>
-								<td>03/01/2016 20:12</td>
-								<td>Panadol *1<br/>
-									Panadol Child *2</td>
-								<td>$27</td>
-								<td><button class="btn btn-primary btn-xs">Update</button>
-									<button class="btn btn-danger btn-xs">Delete</button></td>
-							</tr> 
+		 
 
 
 						 					<?php 
@@ -84,8 +83,8 @@
 													                   echo "<td>".gmdate("Y-m-d H:i:s", $row['date'])."</td>"; 
 													                   echo "<td>".$row['name']."</td>"; 
 													                   echo "<td>"."$" . $row['price']."</td>"; 
-													                   echo "<td><button class=btnbtnprimary btn-xs>Update</button>
-									<button class=btn_btn-danger btn-xs>Delete</button></td>
+													                   echo "<td><button id="."update"." class=btn btn-primary btn-xs".">Update</button>
+									<button id="."delete"." class="."btn btn-danger btn-xs".">Delete</button></td>
 							</tr> "; 
 													               }
  
@@ -96,8 +95,52 @@
 		</div>
 	</div>
 
+
+<div class="container">
+<div class="main">
+<div id="dialog" title="Update Form">
+<form action="" method="post"> 
+<label> Cost:</label>
+<input id="bid" name="name" type="text">
+<input  class="btn btn-danger btn-xs" id="submit" type="submit" value="Submit">
+</form>
+</div>
+  
+
 	<script type="text/javascript">
-		
+		$("#update").click(function(){
+			var saleId = $('td:first', $(this).parents('tr')).text();
+				
+
+			alert(saleId)
+
+			$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
+	         data: {action:'update', saleId:saleId},
+	         type: 'POST',
+	         dataType:'JSON', 
+	         success: function(output) {
+	                      alert(output);
+	                  }
+			}); 
+
+		});
+
+		$("#delete").click(function(){
+			var saleId = $('td:first', $(this).parents('tr')).text();
+			alert(saleId)
+
+			$.ajax({ url: 'http://localhost/dp2project-master/webapp/updateSaleItem.php',
+	         data: {action:'delete', saleId:saleId},
+	         type: 'POST',
+	         dataType:'JSON', 
+	         success: function(output) {
+	                      alert(output);
+	                  }
+			}); 
+ 
+		});	
+
+
 		$("#btn_record").click(function(){
 			window.location.href="../review.php";
 		});
