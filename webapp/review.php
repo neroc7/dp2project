@@ -70,25 +70,7 @@
 								<td>$27</td>
 								<td><button class="btn btn-primary btn-xs">Update</button>
 									<button class="btn btn-danger btn-xs">Delete</button></td>
-							</tr>
-							<tr>
-								<td>1002</td>
-								<td>13/01/2016 11:15</td>
-								<td>Fever Pill *3</td>
-								<td>$15</td>
-								<td><button class="btn btn-primary btn-xs">Update</button>
-									<button class="btn btn-danger btn-xs">Delete</button></td>
-							</tr>
-							<tr>
-								<td>1003</td>
-								<td>13/01/2016 14:15</td>
-								<td>Panamax 100 *2<br/>
-									Sleep Pill 150 *5<br/>
-									Bandit 25 *4</td>
-								<td>$142</td>
-								<td><button class="btn btn-primary btn-xs">Update</button>
-									<button class="btn btn-danger btn-xs">Delete</button></td>
-							</tr>
+							</tr> 
 						</table>
 				</div>
 			</div>

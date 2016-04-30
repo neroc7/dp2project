@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 
-	<?php require_once "connection.php"; ?>
-
-
- <?php 
+<?php require_once "connection.php"; ?>
+ 
+<?php 
 
 if(isset($_POST['addrecord']))
-{
-	echo $_POST['name'];
-	$name = $_POST['name'];
-	$sql = "INSERT INTO sales (s_id,p_id, quantity) VALUES (DEFAULT,1, $name)"; 
+{ 
+	//add current timestamp as date
+	$current_timestamp = time(); 
+
+	//add name and quantity to table
+
+	$name = $_POST['name']; 
+	$quantity = (int)$_POST['quantityValue'];
+	$sql = "INSERT INTO sales (s_id,p_id,date, quantity) VALUES (DEFAULT, $name,  $current_timestamp, $quantity)"; 
 	if (mysqli_query($conn, $sql)) {
-		echo "New record created successfully";
+		echo time();
 	} else {
 		    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
@@ -28,7 +32,7 @@ if(isset($_POST['addrecord']))
 	<script src="script/jquery.js"></script>
 </head>
 <body>
-	<?php require_once "nav.php"; ?>
+	<?php require_once "nav.php";  ?>
 
 
 	<br/>
@@ -91,13 +95,14 @@ if(isset($_POST['addrecord']))
 										</td>
 										<td>
 											<div class="col-lg-10">
-												<input type="number" class="form-control" id="quantity" placeholder="e.g. 1 or 2" />
+												<input type="number" class="form-control" name="quantityValue" id="quantityValue" placeholder="e.g. 1 or 2" />
 											</div>
+												<input type="number" hidden =false name="date" id="date"</div>
 										</td>
 									</div>
 								</tr>
 								</table>
-								<button class="btn btn-primary" name="addrecord" id="addrecord"  type="submit">Add this Recrod</button>
+								<button class="btn btn-primary" name="addrecord" id="addrecord"  type="submit">Add Sale Record</button>
 								<button class="btn btn-warning" id="cancel" type="reset">Cancel</button>
 							</fieldset>
 						</form>
@@ -107,8 +112,13 @@ if(isset($_POST['addrecord']))
 		</div>
 	</div>
 
+ 
+
 	<script type="text/javascript">
-	  
+	  $("#addrecord").click(function(){
+	  		alert('record added');
+		});
+
 		$("#cancel").click(function(){
 			window.location.href="/";
 		});
@@ -117,10 +127,7 @@ if(isset($_POST['addrecord']))
 		$("#btn_record").click(function(){
 			window.location.href="../review.php";
 		});
-
-		$("#add_record").click(function(){
-			window.location.href="../statistics.php";
-		});
+ 
 
 	</script>
 </body>
