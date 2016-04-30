@@ -1,7 +1,13 @@
 <?php
-	
-	$conn = mysqli_connect("pingchengtech.com", "dp2user", "dp2user", "dp2");
+if (!defined('SERVERNAME')) define('SERVERNAME', 'localhost');
+    if (!defined('USERNAME')) define('USERNAME', 'root');
+    if (!defined('PASSWORD')) define('PASSWORD', '');
+    if (!defined('DBNAME')) define('DBNAME', 'dp2');
 
+    $conn = new mysqli(SERVERNAME, USERNAME, PASSWORD, 'dp2');
+
+	//$conn = mysqli_connect("pingchengtech.com", "dp2user", "dp2user", "dp2");
+ 
 	if (!$conn) {
 		echo "<p>fail</p>";
 	} else {
