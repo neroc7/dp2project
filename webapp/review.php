@@ -74,15 +74,19 @@
 							</tr> 
 
 
-						 					<?php
+						 					<?php 
 						 						   //query products to drop down list   
-													$query = "select s_id,date from sales;";
+													$query = "SELECT a.s_id, a.date, b.name,b.price FROM sales a, product b where a.p_id = b.id";
 													$result = mysqli_query($conn, $query);
 													while ($row = mysqli_fetch_assoc($result))  {
 													                   echo "<tr>";
 													                   echo "<td>".$row['s_id']."</td>";
-													                   echo "<td>".$row['date']."</td>"; 
-													                   echo "</tr>";
+													                   echo "<td>".gmdate("Y-m-d H:i:s", $row['date'])."</td>"; 
+													                   echo "<td>".$row['name']."</td>"; 
+													                   echo "<td>"."$" . $row['price']."</td>"; 
+													                   echo "<td><button class=btnbtnprimary btn-xs>Update</button>
+									<button class=btn_btn-danger btn-xs>Delete</button></td>
+							</tr> "; 
 													               }
  
 											?>
