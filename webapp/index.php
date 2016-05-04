@@ -45,13 +45,15 @@
 						<br/><p><strong>Sale History: </strong>Review the sale history by listing, you also can update a record, or delete a record.<br/><br/><strong>Add a sale record: </strong>Adding a sale record to the database.</p>
 
 
+<br/><br/><strong> Low Stock</strong></p>
 
-					</div>
-				</div>
-			</div>
-		</div>
+					<table class="table table-hover table-striped table-condensed">
+						<tr>
 
-	</div>
+							<th style="width:60%;">Item Name</th>
+							<th>Price</th>
+							<th>Quantity</th>
+						</tr>
 						<?php 
 
 							require_once "settings.php";
@@ -60,7 +62,7 @@
 							if (!$conn) {
 								echo "<p>Database connection failure</p>";
 							} else {
-								$query = "SELECT p.id, p.name, p.price, s.quantity FROM product p LEFT JOIN stock s ON p.id = s.id where s.quantity < 10 ORDER BY p.id;";
+								$query = "SELECT p.id, p.name, p.price, s.quantity FROM product p LEFT JOIN stock s ON p.id = s.id where s.quantity < 10 or s.quantity is null ORDER BY p.id;";
 								$result = mysqli_query($conn, $query);
 
 								if (!$result) {
@@ -75,12 +77,15 @@
 										$item_name = $row['name'];
 
 										echo "<tr>";
-										echo "<td>", $row['id'], "</td>";
 										echo "<td>", $row['name'],"</td>";
 										echo "<td>", $row['price'],"</td>";
 										echo "<td>", $row['quantity'],"</td>";
-										echo "</tr>";
+										?>
 
+
+
+										<?php
+										echo "</tr>";
 									}
 								}
 
@@ -90,6 +95,16 @@
 							mysqli_close($conn);
 
 						?>
+						
+					</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
 
 	<script type="text/javascript">
 		
