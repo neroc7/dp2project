@@ -12,7 +12,7 @@
 
 	<script src="script/jquery.js"></script>
 	<script src="script/bs.js"></script>
-
+	<script src="script/update_stock_validation.js"></script>
 </head>
 
 <body>
@@ -110,7 +110,7 @@
 										</td>
 										<td>
 											<div class="col-lg-10">
-												<input type="number" class="form-control" id="quantity" placeholder="e.g. 1 or 2" value="<?php if($load){echo $item_quantity;}?>"/>
+												<input type="text" class="form-control" id="quantity" placeholder="e.g. 1 or 2" value="<?php if($load){echo $item_quantity;}?>"/>
 											</div>
 										</td>
 									</div>
@@ -122,7 +122,7 @@
 										</td>
 										<td>
 											<div class="col-lg-10">
-												<input type="number" class="form-control" id="price" placeholder="e.g. 14 for $14" value="<?php if($load){echo $item_price;}?>"/>
+												<input type="text" class="form-control" id="price" placeholder="e.g. 14 for $14" value="<?php if($load){echo $item_price;}?>"/>
 											</div>
 										</td>
 									</div>

@@ -12,6 +12,8 @@
 
 	<script src="script/jquery.js"></script>
 	<script src="script/bs.js"></script>
+	<script src="script/add_stock_item_validation.js"></script>
+
 
 </head>
 
@@ -48,9 +50,6 @@
 							<div class="btn-group" role="group">
 								<button id="btn_add_stock_item" type="button" class="btn btn-info">Add a Stock Item</button>
 							</div>
-							<div class="btn-group" role="group">
-								<button id="btn_update_stock_item" type="button" class="btn btn-default">Update a Stock Item</button>
-							</div>
 						</div>
 						<br/>
 
@@ -81,7 +80,7 @@
 										</td>
 										<td>
 											<div class="col-lg-10">
-												<input type="number" class="form-control" id="price" name="price" placeholder="e.g. enter 14 for $14" />
+												<input type="text" class="form-control" id="price" name="price" placeholder="e.g. enter 14 for $14" />
 											</div>
 										</td>
 									</div>
