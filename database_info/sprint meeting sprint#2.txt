@@ -1,7 +1,7 @@
 Sprint Review
 =============
-1. Everything is completed on time, a bit behind the progress on the mid te
-2. the tasks is all complete on time, for a better estimation, actacully we can affoard a heavier task estimation
+1. Everything is completed on time, a bit behind the progress on the mid time
+2. the tasks is all complete on time, for a better estimation, actually we can affoard a heavier task estimation
 3. Yes, the task is not described too detailed, we should put some requirements for a task.
 4. The program is under a good construction and a friendly GUI, every team members can access and make developments upon it.
 
@@ -11,6 +11,6 @@ Sprint Retrospective
 ====================
 1. We have 3 members and got 60 hours tasks, and we finished these tasks in our planning target.
 2. In next sprint, we can define a task more detailed (like put a requirements list for each task)
- more detail of the taks to reduce the confusion of the definition of the taks
-3. Every component is working well, the validation funciton on "update a stock item" page is not working so far due to a layout of code
-4. Yes, in next sprint, a well-commentted code will help other team memebers to understand your code to help them develop additional functions faster.
+ more detail of the tasks to reduce the confusion of the definition of the tasks
+3. Every component is working well, the validation function on "update a stock item" page is not working so far due to a layout of code
+4. Yes, in next sprint, a well-commentted code will help other team members to understand your code to help them develop additional functions faster.
